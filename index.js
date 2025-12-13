@@ -11,6 +11,7 @@ const db = require("./config/db");
 const authRoutes = require("./routes/authRoutes");  //import authentication routing for signup and signin .
 const productRoutes=require("./routes/productRoutes");
 const customerRoutes=require('./routes/customerRoutes');
+const supplierRouter=require('./routes/supplierRoutes');
 
 app.use(cors()); //use cors middleware
 app.use(express.json());
@@ -25,6 +26,9 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use("/api/auth", authRoutes); 
 app.use("/api/product",productRoutes);
 app.use("/api/customer",customerRoutes);
+app.use("/api/supplier",supplierRouter);
+
+
 const PORT = process.env.PORT || 3000;
 
 //to start the server
